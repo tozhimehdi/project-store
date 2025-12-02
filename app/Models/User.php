@@ -4,13 +4,14 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mobile',
+        'role',
+        'avatar',
+        'is_active'
     ];
 
     /**
@@ -45,4 +50,26 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function otps()
+    {
+        return $this->belongsToMany(Otp::class);
+    }
+
+    
+    public function getcreatedAtAttribute($created_at)
+    {
+        return verta($created_at)->format('Y/m/d');
+    }
+
+    public function getupdatedAtAttribute($updated_at)
+    {
+        return verta($updated_at)->format('Y/m/d');
+    }
+
+    public function getdeletedAtAttribute($deleted)
+    {
+        return verta($deleted)->format('Y/m/d');
+    }
+
 }

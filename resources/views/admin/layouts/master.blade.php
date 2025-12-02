@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" class="light-style layout-navbar-fixed layout-menu-fixed" dir="rtl" data-theme="theme-default" data-assets-path="{{asset('admin/')}}" data-template="vertical-menu-template">
+<html lang="fa" class="light-style layout-navbar-fixed layout-menu-fixed" dir="rtl" data-theme="theme-default" data-assets-path="{{asset('admin')}}/" data-template="vertical-menu-template">
 <head>
     @include('admin.layouts.head')
 </head>
