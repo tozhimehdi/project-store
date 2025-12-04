@@ -56,6 +56,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Otp::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
     
     public function getcreatedAtAttribute($created_at)
     {
