@@ -67,6 +67,16 @@ class User extends Authenticatable
     }
 
     
+    public function hasPermission($permission)
+    {
+        return $this->permissions->contains('title', $permission->title) || $this->hasRole($permission->roles);
+    }
+
+    public function hasRole($roles)
+    {
+        return !! $roles->intersect($this->roles())->all();
+    }
+    
     public function getcreatedAtAttribute($created_at)
     {
         return verta($created_at)->format('Y/m/d');
