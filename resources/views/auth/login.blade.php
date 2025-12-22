@@ -88,7 +88,7 @@
               <h4 class="mb-3 secondary-font">به فرست خوش آمدید!</h4>
               <p class="mb-4">لطفا وارد حساب خود شده و ماجراجویی را شروع کنید</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="{{ route('request.otp') }}" method="get">
                 <div class="mb-3">
                   <label for="mobile" class="form-label">شماره موبایل:</label>
                   <input type="text" class="form-control text-start" id="mobile" name="mobile" autofocus dir="ltr">

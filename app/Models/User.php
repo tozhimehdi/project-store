@@ -76,7 +76,12 @@ class User extends Authenticatable
     {
         return !! $roles->intersect($this->roles())->all();
     }
-    
+
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
+
     public function getcreatedAtAttribute($created_at)
     {
         return verta($created_at)->format('Y/m/d');

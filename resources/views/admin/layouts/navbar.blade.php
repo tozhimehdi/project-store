@@ -408,10 +408,14 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
-                            <i class="bx bx-power-off me-2"></i>
-                            <span class="align-middle">خروج</span>
-                        </a>
+
+                        <form action="{{ route('auth.logout') }}" method="post">
+                            @CSRF
+                            <button type="submit" class="dropdown-item" >
+                                خروج
+                            </button>
+                        </form>
+
                     </li>
                 </ul>
             </li>
