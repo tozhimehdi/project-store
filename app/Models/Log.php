@@ -14,7 +14,7 @@ class Log extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function event($actionType,$model,$description)
+    static public function event($actionType,$model,$description)
     {
         if(Auth::check()){$user_id=Auth::id();}else{$user_id='';}
 

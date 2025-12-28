@@ -46,7 +46,7 @@ return new class extends Migration
 
         });
 
-        Schema::create('permision_user', function (Blueprint $table) {
+        Schema::create('permission_user', function (Blueprint $table) {
             $table->unsignedBigInteger('permission_id');
             $table->foreign('permission_id')->references('id')->on('permissions');
 

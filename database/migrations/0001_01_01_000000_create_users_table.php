@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             // $table->enum('loginMethod',allowed: ['otp','normal'])->default('otp');
             $table->rememberToken();
             $table->softDeletes();
@@ -62,8 +62,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('otps');
+
+        Schema::dropIfExists('users');
+
     }
 };

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ Route::middleware(['web','guest'])->group(function(){
 //-----------------------------------------Admin----------------------------------//
 Route::middleware(['web'])->prefix('managment')->group(function(){
     Route::get('/', [DashboardController::class,'index'])->name('admin.index');
-
+    Route::resource('/articles',ArticleController::class);
 });
 
 

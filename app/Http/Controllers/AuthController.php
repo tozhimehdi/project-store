@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Otp;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -81,7 +82,7 @@ class AuthController extends Controller
         Auth::login($user);
         //TODO
         //Insert to Log table
-
+        // Log::event();
         if($user->role == "admin"){
             return to_route('admin.index');
         }elseif($user->role == "customer"){

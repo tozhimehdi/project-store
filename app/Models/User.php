@@ -74,7 +74,7 @@ class User extends Authenticatable
 
     public function hasRole($roles)
     {
-        return !! $roles->intersect($this->roles())->all();
+        return !! $roles->intersect($this->roles)->all();
     }
 
     public function logs()
