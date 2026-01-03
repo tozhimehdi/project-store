@@ -20,3 +20,4 @@
 
 <!-- Page JS -->
 <script src="{{asset('admin/js/dashboards-analytics.js')}}"></script>
+@yield('scripts')

@@ -3,20 +3,24 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->authorize('articles', 'index');
+        // $this->authorize('articles', 'index');
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return 'ok';
+        $articles = Article::all();
+        return view('admin.articles.index',compact('articles'));
     }
 
     /**
@@ -24,7 +28,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::where('category_type','article')->get();
+        $tags = Tag::where('tag_type','article')->get();
+        return view('admin.articles.create',compact('categories','tags'));
     }
 
     /**

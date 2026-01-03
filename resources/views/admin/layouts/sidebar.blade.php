@@ -108,7 +108,7 @@
 
 
 
-  @canany(['articles', 'create-articles', 'edit-articles'])
+  {{-- @canany(['articles', 'create-articles', 'edit-articles']) --}}
     <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-article"></i>
@@ -116,25 +116,25 @@
         </a>
         <ul class="menu-sub">
           
-          @can('articles')
+          {{-- @can('articles') --}}
             <li class="menu-item">
               <a href="{{ route('articles.index') }}" class="menu-link">
                 <div data-i18n="Articles List">لیست مقالات</div>
               </a>
             </li>  
-          @endcan
+          {{-- @endcan --}}
           
-          @can('create-articles')
+          {{-- @can('create-articles') --}}
             <li class="menu-item">
               <a href="{{ route('articles.create') }}" class="menu-link">
                 <div data-i18n="Create Article">ایجاد مقاله جدید</div>
               </a>
             </li>
-          @endcan
+          {{-- @endcan --}}
 
         </ul>
       </li>
-  @endcanany
+  {{-- @endcanany --}}
 
 
 
